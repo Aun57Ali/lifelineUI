@@ -12,43 +12,41 @@ import {
   Row,
   Col,
 } from "reactstrap";
+import "./../assets/css/login.css";
+import { Link } from "react-router-dom";
 
 export default function Edit() {
   return (
     <div className="content">
-        <Row>
+      <Row>
         <Col md="4">
-            <Card className="card-user">
-              <CardBody>
-                <CardText />
-                <div className="author">
-                  <div className="block block-one" />
-                  <div className="block block-two" />
-                  <div className="block block-three" />
-                  <div className="block block-four" />
-                  <a href="#pablo" onClick={(e) => e.preventDefault()}>
-                    <img
-                      alt="..."
-                      className="avatar"
-                      src={require("assets/img/emilyz.jpg")}
-                    />
-                    <h5 className="title">David Morse</h5>
-                  </a>
-                  <p className="description">Admin</p>
-                          
-                
-               
-                      </div>      
-              </CardBody>
-              
-            </Card>
-          </Col>
-          <Col md="8">
-            <Card>
-              <CardHeader>
-                <h5 className="title">Edit Profile</h5>
-              </CardHeader>
-              <CardBody>
+          <Card className="card-user">
+            <CardBody>
+              <CardText />
+              <div className="author">
+                <div className="block block-one" />
+                <div className="block block-two" />
+                <div className="block block-three" />
+                <div className="block block-four" />
+                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                  <img
+                    alt="..."
+                    className="avatar"
+                    src={require("assets/img/emilyz.jpg")}
+                  />
+                  <h5 className="title">David Morse</h5>
+                </a>
+                <p className="description">Admin</p>
+              </div>
+            </CardBody>
+          </Card>
+        </Col>
+        <Col md="8">
+          <Card>
+            <CardHeader>
+              <h5 className="title">Edit Profile</h5>
+            </CardHeader>
+            <CardBody>
               <Form>
                 <Row>
                   <Col className="pr-md-1" md="6">
@@ -104,16 +102,15 @@ export default function Edit() {
                   </Col>
                 </Row>
               </Form>
-              </CardBody>
-              <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
-                  Save Changes
-                </Button>
-              </CardFooter>
-            </Card>
-          </Col>
-          
-        </Row>
-      </div>
-  )
+            </CardBody>
+            <CardFooter>
+              <Button className="btn-fill" color="primary" type="submit">
+                Save Changes
+              </Button>
+            </CardFooter>
+          </Card>
+        </Col>
+      </Row>
+    </div>
+  );
 }

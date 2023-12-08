@@ -68,13 +68,6 @@ var routes = [
     layout: "/admin",
   },
   {
-    path: "/Edit",
-    name: "Edit",    
-    icon: "tim-icons icon-settings",
-    component: <Edit />,
-    layout: "/admin",
-  },
-  {
     path: "/Login",
     name: "Login",    
     icon: "tim-icons icon-bullet-list-67",

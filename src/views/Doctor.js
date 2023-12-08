@@ -20,10 +20,12 @@ export default function Doctor() {
   return (
     <div className="content">
       <Row className="justify-content-end">
+        <Col xs="12">
         <Link to="/admin/Adddoctor">
         <Button className="btn-fill" color="primary" type="submit">
           New Doctor
         </Button></Link>
+        </Col>
         <UncontrolledDropdown className="ml-auto">
           <DropdownToggle
             caret

@@ -26,20 +26,22 @@ export default function AddDoctor() {
                 <Row>
                   <Col className="pr-md-1" md="6">
                     <FormGroup>
-                      <label>First Name</label>
+                      <label>Name</label>
                       <Input
-                        defaultValue="Mike"
-                        placeholder="Company"
+                        defaultValue=""
+                        name="D_Name"
+                        placeholder="Mike"
                         type="text"
                       />
                     </FormGroup>
                   </Col>
                   <Col className="pl-md-1" md="6">
                     <FormGroup>
-                      <label>Last Name</label>
+                      <label>Field</label>
                       <Input
-                        defaultValue="Andrew"
-                        placeholder="Last Name"
+                        defaultValue=""
+                        name="D_Field"
+                        placeholder="Surgeon"
                         type="text"
                       />
                     </FormGroup>
@@ -48,60 +50,51 @@ export default function AddDoctor() {
                 <Row>
                   <Col className="pr-md-1" md="6">
                     <FormGroup>
-                      <label>Designation</label>
+                      <label htmlFor="exampleInputEmail1">Email address</label>
                       <Input
-                        defaultValue="Surgeon"
-                        placeholder="Designation"
+                        placeholder="mike@email.com"
+                        name="D_Email"
+                        type="email"
+                      />
+                    </FormGroup>
+                  </Col>
+                  <Col className="pl-md-1" md="6">
+                    <FormGroup>
+                      <label>Password</label>
+                      <Input
+                        defaultValue=""
+                        name="D_Password"
+                        placeholder=""
+                        type="text"
+                      />
+                    </FormGroup>
+                  </Col>
+                </Row>
+
+                <Row>
+                  <Col className="pr-md-1" md="6">
+                    <FormGroup>
+                      <label>Contact No.</label>
+                      <Input
+                        defaultValue=""
+                        name="D_Mobile"
+                        placeholder="Contact"
                         type="text"
                       />
                     </FormGroup>
                   </Col>
                   <Col className="pl-md-1" md="6">
                     <FormGroup>
-                      <label htmlFor="exampleInputEmail1">Email address</label>
-                      <Input placeholder="mike@email.com" type="email" />
-                    </FormGroup>
-                  </Col>
-                </Row>
-
-                <Row>
-                  <Col md="12">
-                    <FormGroup>
-                      <label>Address</label>
-                      <Input
-                        defaultValue=""
-                        placeholder="Home Address"
-                        type="text"
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row>
-                  <Col className="pr-md-1" md="4">
-                    <FormGroup>
-                      <label>Gender</label>
-                      <select class="form-control" id="genderSelect">
-                        <option value="">Select gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                      <label>Availability Staus</label>
+                      <select
+                        class="form-control"
+                        name="D_AvailablityStatus"
+                        id="genderSelect"
+                      >
+                        <option value="">Select Staus</option>
+                        <option value="avail">Available</option>
+                        <option value="navail">Not Available</option>
                       </select>
-                    </FormGroup>
-                  </Col>
-                  <Col className="px-md-1" md="4">
-                    <FormGroup>
-                      <label>Contact No.</label>
-                      <Input
-                        defaultValue=""
-                        placeholder="Contact"
-                        type="text"
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col className="px-md-1" md="4">
-                    <FormGroup>
-                      <label>Date Of Birth</label>
-                      <Input defaultValue="" placeholder="DOB" type="date" />
                     </FormGroup>
                   </Col>
                 </Row>
@@ -111,7 +104,19 @@ export default function AddDoctor() {
                       <label>Add Photo</label>
                       <Input type="file" name="Photo" id="Photo" />
                       <br></br>
-                      <i className="fa fa-camera" />
+                      <div
+                        style={{
+                          border: "2px solid #00bf9a",
+                          borderRadius: "50%",
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          width: "50px",
+                          height: "50px",
+                        }}
+                      >
+                        <i className="fa fa-camera" />
+                      </div>
                     </FormGroup>
                   </Col>
                 </Row>

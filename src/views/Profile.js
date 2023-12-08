@@ -1,13 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
 import {
+  Button,
   Card,
   CardHeader,
   CardBody,
+  CardFooter,
+  CardText,
   CardTitle,
+  FormGroup,
+  Form,
+  Input,
   Row,
   Col,
 } from "reactstrap";
 import back from "./../assets/img/12.jpg";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+
+const EditableInput = ({ defaultValue }) => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [inputValue, setInputValue] = useState(defaultValue);
+
+  const handleEditClick = () => {
+    setIsEditing(true);
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleSaveClick = () => {
+    setIsEditing(false);
+    // Perform actions to save the updated value (e.g., API calls, state updates, etc.)
+    console.log("Updated value:", inputValue);
+  };
+
+  return (
+    <>
+      {isEditing ? (
+        <Input value={inputValue} onChange={handleInputChange} />
+      ) : (
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <Input value={inputValue} disabled />
+          <FontAwesomeIcon
+            icon={faPencilAlt}
+            className="ml-2"
+            onClick={handleEditClick}
+            style={{ cursor: "pointer" }}
+          />
+        </div>
+      )}
+      {isEditing && (
+        <Button className="mt-2" color="primary" onClick={handleSaveClick}>
+          Save
+        </Button>
+      )}
+    </>
+  );
+};
 
 export default function Profile() {
   return (
@@ -29,47 +79,98 @@ export default function Profile() {
           </Card>
         </Col>
       </Row>
+
       <Row>
-        <Col lg="6" md="12">
-          <Card className="card-tasks">
-            <CardHeader>
-              <h4 className="title d-inline">About Me</h4>
-            </CardHeader>
+        <Col md="4">
+          <Card className="card-user">
             <CardBody>
-              <div className="table-full-width table-responsive">
-                <h5 style={{ color: "#ff8d72" }}>Description: </h5>
-                <p>
-                  As a hospital administrator, my role is instrumental in
-                  ensuring the efficient functioning of our healthcare facility.
-                  I oversee various departments, manage budgets, and collaborate
-                  closely with medical staff to maintain exceptional standards
-                  of patient care. My responsibilities encompass tasks such as
-                  staffing, scheduling, and implementing policies to ensure
-                  adherence to healthcare regulations. I prioritize optimizing
-                  resources and enhancing patient experiences, striving to
-                  create a safe, well-organized, and patient-centric environment
-                  within our hospital. Through leadership and strategic
-                  decision-making, I aim to contribute to the overall success
-                  and effectiveness of our institution, placing utmost
-                  importance on delivering high-quality healthcare services.
-                </p>
-                <br></br>
-                <h5 style={{ color: "#ff8d72" }}>Language: </h5>
-                <p>English</p>
-                <br></br>
-                <h4 style={{ color: "#00f2c3" }}>Personal Information: </h4>
-                <br></br>
-                <p style={{ color: "#ff8d72" }}>Name: </p>
-                <p>David Morse</p>
-                <br></br>
-                <p style={{ color: "#ff8d72" }}>Email: </p>
-                <p>dmorse@gmail.com</p>
-                <br></br>
-                <p style={{ color: "#ff8d72" }}>Age: </p>
-                <p>29</p>
-                <br></br>
+              <CardText />
+              <div className="author">
+                <div className="block block-one" />
+                <div className="block block-two" />
+                <div className="block block-three" />
+                <div className="block block-four" />
+                <a href="#pablo" onClick={(e) => e.preventDefault()}>
+                  <img
+                    alt="..."
+                    className="avatar"
+                    src={require("assets/img/emilyz.jpg")}
+                  />
+                  <FormGroup className="text-center">
+                    <label>Change Photo</label>
+                    <Input type="file" name="Photo" id="Photo" />
+                    <br></br>
+                    <div
+                      style={{
+                        border: "2px solid #00bf9a",
+                        borderRadius: "10px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "50px",
+                        height: "30px",
+                        margin: "auto",
+                      }}
+                    >
+                      <i className="fa fa-camera" />
+                    </div>
+                  </FormGroup>
+                  <br></br>
+                  <h5 className="title">David Morse</h5>
+                </a>
+                <p className="description">Admin</p>
               </div>
             </CardBody>
+          </Card>
+        </Col>
+        <Col md="8">
+          <Card>
+            <CardHeader>
+              <h5 className="title">Edit Profile</h5>
+            </CardHeader>
+            <CardBody>
+              <Form>
+                <Row>
+                  <Col className="pr-md-1" md="6">
+                    <FormGroup>
+                      <label htmlFor="exampleInputEmail1">Change Email</label>
+                      <EditableInput defaultValue="dmorse@email.com" />
+                    </FormGroup>
+                  </Col>
+                  <Col className="pl-md-1" md="6">
+                    <FormGroup>
+                      <label>Change Address</label>
+                      <EditableInput defaultValue="Karachi" />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="pr-md-1" md="6">
+                    <FormGroup>
+                      <label>Change Username</label>
+                      <EditableInput defaultValue="DavidMorse" />
+                    </FormGroup>
+                  </Col>
+                  <Col className="pl-md-1" md="6">
+                    <FormGroup>
+                      <label>Change Password</label>
+                      <EditableInput defaultValue="abc123" />
+                    </FormGroup>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col className="pr-md-1" md="6">
+                    <FormGroup>
+                      <label>Change Contact No.</label>
+                      <EditableInput defaultValue="0312-3456789" />
+                    </FormGroup>
+                  </Col>
+                </Row>
+              </Form>
+            </CardBody>
+            <CardFooter>
+              <br></br>
+            </CardFooter>
           </Card>
         </Col>
       </Row>
